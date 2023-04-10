@@ -1,4 +1,4 @@
-package mykola.dev.server.user;
+package mykola.dev.server.user.dto;
 
 import org.springframework.stereotype.Component;
 
