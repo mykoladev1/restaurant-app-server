@@ -17,9 +17,15 @@ public class CommentController {
         this.commentService = commentService;
     }
 
-    @GetMapping("/list")
-    public List<Comment> getComments(@RequestBody CommentDTO data) {
-        return commentService.getComments(data.getRestaurant());
+    @GetMapping("/list/{id}")
+    public List<Comment> getComments(@PathVariable("id") String id) {
+        return commentService.getComments(UUID.fromString(id));
+    }
+
+    @GetMapping("/listByUser/{id}")
+    public List<Comment> getCommentsByUser(@PathVariable("id") String id) {
+        return commentService.getCommentsByUser(UUID.fromString(id));
+
     }
 
     @PostMapping("/")

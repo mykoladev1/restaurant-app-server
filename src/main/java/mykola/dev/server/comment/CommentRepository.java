@@ -9,4 +9,6 @@ import java.util.UUID;
 @Repository
 public interface CommentRepository extends JpaRepository<Comment, UUID> {
     List<Comment> findAllById(UUID restaurantID);
+    List<Comment> findAllByRestaurant(UUID restaurantID);
+    List<Comment> findAllByUserID(UUID restaurantID);
 }

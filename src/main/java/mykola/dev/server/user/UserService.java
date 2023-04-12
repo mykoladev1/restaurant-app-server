@@ -58,29 +58,23 @@ public class UserService implements UsernameValidation, SurnameValidation {
     public void updateUser(UUID id, String name, String surname) {
         User user = userRepository.findById(id).orElseThrow(() -> new IllegalStateException("student with id" + id + "does not exists"));
 
-        // TODO
-        // Тутай замінити на validateUsername()
-        if (name != null && name.length() > 0 && !Objects.equals(user.getName(), name)) {
+        if (validateUsername(name)) {
             user.setName(name);
         }
 
-        // TODO
-        // тутай теж
-        if (surname != null && surname.length() > 0 && !Objects.equals(user.getSurname(), surname)) {
+        if (validateSurname(surname)) {
             user.setSurname(surname);
         }
     }
 
-    // TODO
     @Override
-    public boolean validateUsername() {
-        return true;
+    public boolean validateUsername(String name) {
+        return name != null && name.length() > 0;
     }
 
-    // TODO
     @Override
-    public boolean validateSurname() {
-        return true;
+    public boolean validateSurname(String surname) {
+        return surname != null && surname.length() > 0;
     }
 }
 

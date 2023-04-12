@@ -1,10 +1,14 @@
 package mykola.dev.server.user;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import mykola.dev.server.comment.Comment;
 import org.hibernate.annotations.UuidGenerator;
 
+import java.util.List;
 import java.util.UUID;
 
+@Data
 @Entity
 @Table(name = "users")
 public class User {
